@@ -66,10 +66,15 @@ public class Tienda {
         this.direccion = direccion;
     }
 
-    public boolean asignarCamaras(Camara camara) {
+    public boolean asignarCamaras(Marca marca, Modelo modelo, int cantPeliculas, Pelicula[] pelicula, boolean soporte) {
         boolean estado = false;
         for (int i = 0; i < camaras.length; i++) {
-            camaras[i] = camara;
+            camaras[i]=new Camara();
+            camaras[i].setMarcas(marca);
+            camaras[i].setModelos(modelo);
+            camaras[i].setSoporte(soporte);
+            camaras[i].setPeliculas(pelicula);
+
             estado = true;
             break;
         }

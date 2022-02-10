@@ -38,17 +38,21 @@ public class Main {
 
         int cantPeliculas= consola.leerEntero("Digita la cantidad de ´peliculas deseadas");
 
-        Pelicula pelicula1 = new Pelicula();
-        pelicula1.setNombre(consola.leerCadena("Nombre pelicula: "));
-        pelicula1.setFormato(consola.leerCadena("Formato: "));
-        pelicula1.setSencibilidad(consola.leerCadena("Sencibilidad: "));
-        pelicula1.setMarcas(marca2);
+        Pelicula[] pelicula1 = new Pelicula[cantPeliculas];
+        for (int i = 0; i < pelicula1.length; i++) {
+            pelicula1[i] = new Pelicula();
+            pelicula1[i].setNombre(consola.leerCadena("Nombre pelicula: "));
+            pelicula1[i].setFormato(consola.leerCadena("Formato: "));
+            pelicula1[i].setSencibilidad(consola.leerCadena("Sencibilidad: "));
+            pelicula1[i].setMarcas(marca2);
+            break;
+        }
 
         Camara camara1 = new Camara(cantPeliculas);
         camara1.setMarcas(marca1);
         camara1.setModelos(modelo1);
         camara1.setSoporte(true);
-        boolean c = camara1.asignarPelicula(pelicula1);
+        boolean c = camara1.asignarPelicula(pelicula1[0]);
         if (c){
             consola.imprimir("se asignó la pelicula");
         }
@@ -70,7 +74,7 @@ public class Main {
             consola.imprimir("no se puede registrar mas clientes");
         }
 
-        boolean a = tienda1.asignarCamaras(camara1);
+        boolean a = tienda1.asignarCamaras(marca1,modelo1,2,pelicula1,true);
         if (a){
             consola.imprimir("se registró la camara");
         }
