@@ -48,4 +48,12 @@ public class Cliente {
     public void setCamara(Camara camara) {
         this.camara = camara;
     }
+
+    @Override
+    public String toString() {
+        return "nombre= " + nombre +
+                " tipoDocumento= " + tipoDocumento +
+                " numeroDocumento= " + numeroDocumento +
+                " camara=" + camara;
+    }
 }

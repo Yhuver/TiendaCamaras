@@ -2,10 +2,12 @@ package modelo;
 
 public class Marca {
 
-    private  String direccion;
+    private String direccion;
+    private String nombre;
 
-    public Marca(String direccion) {
+    public Marca(String nombre, String direccion) {
         this.direccion = direccion;
+        this.nombre = nombre;
     }
 
     public Marca() {
@@ -17,5 +19,19 @@ public class Marca {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return direccion +
+                nombre;
     }
 }

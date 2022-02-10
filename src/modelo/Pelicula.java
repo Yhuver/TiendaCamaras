@@ -2,31 +2,31 @@ package modelo;
 
 public class Pelicula {
 
-    private Marca[] marcas;
+    private Marca marcas;
     private String nombre;
     private String sencibilidad;
     private String formato;
 
-    public Pelicula(int marcas, String nombre, String sencibilidad, String formato) {
-        this.marcas=new Marca[marcas];
+    public Pelicula(Marca marcas, String nombre, String sencibilidad, String formato) {
+        this.marcas = marcas;
         this.nombre = nombre;
         this.sencibilidad = sencibilidad;
         this.formato = formato;
     }
 
-    public Pelicula(int marcas){
-        this.marcas=new Marca[marcas];
+    public Pelicula(Marca marcas){
+        this.marcas = marcas;
     }
 
     public Pelicula(){
 
     }
 
-    public Marca[] getMarcas() {
+    public Marca getMarcas() {
         return marcas;
     }
 
-    public void setMarcas(Marca[] marcas) {
+    public void setMarcas(Marca marcas) {
         this.marcas = marcas;
     }
 
@@ -52,5 +52,13 @@ public class Pelicula {
 
     public void setFormato(String formato) {
         this.formato = formato;
+    }
+
+    @Override
+    public String toString() {
+        return "marcas= " + marcas +
+                " nombre= " + nombre +
+                " sencibilidad= " + sencibilidad +
+                " formato= " + formato;
     }
 }

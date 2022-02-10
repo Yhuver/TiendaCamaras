@@ -66,14 +66,32 @@ public class Tienda {
         this.direccion = direccion;
     }
 
+    public boolean asignarCamaras(Camara camara) {
+        boolean estado = false;
+        for (int i = 0; i < camaras.length; i++) {
+            camaras[i] = camara;
+            estado = true;
+            break;
+        }
+        return estado;
+    }
+
+    public boolean asignarClientes(Cliente cliente) {
+        boolean estado = false;
+        for (int i = 0; i < clientes.length; i++) {
+            clientes[i] = cliente;
+            estado = true;
+            break;
+        }
+        return estado;
+    }
+
     @Override
     public String toString() {
-        return "Tienda{" +
-                "camaras=" + Arrays.toString(camaras) +
-                ", clientes=" + Arrays.toString(clientes) +
-                ", nombre='" + nombre + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", direccion='" + direccion + '\'' +
-                '}';
+        return "camaras= " + Arrays.toString(camaras) +
+                "\nclientes= " + Arrays.toString(clientes) +
+                "\nnombre= " + nombre +
+                "\ntelefono= " + telefono +
+                "\ndireccion= " + direccion;
     }
 }

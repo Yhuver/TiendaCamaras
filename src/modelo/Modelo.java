@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Arrays;
+
 public class Modelo {
 
     private String nombre;
@@ -32,5 +34,21 @@ public class Modelo {
 
     public void setItems(Item[] items) {
         this.items = items;
+    }
+
+    public boolean asignarItem(Item item) {
+        boolean estado = false;
+        for (int i = 0; i < items.length; i++) {
+            items[i] = item;
+            estado = true;
+            break;
+        }
+        return estado;
+    }
+
+    @Override
+    public String toString() {
+        return nombre +
+                Arrays.toString(items);
     }
 }
