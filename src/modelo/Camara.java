@@ -7,13 +7,7 @@ public class Camara {
     private Modelo modelos;
     private Pelicula[] peliculas;
     private boolean soporte;
-
-    public Camara(Marca marcas, Modelo modelos, int peliculas, boolean soporte) {
-        this.marcas = marcas;
-        this.modelos = modelos;
-        this.peliculas = new Pelicula[peliculas];
-        this.soporte = soporte;
-    }
+    String nombre;
 
     public Camara(int peliculas) {
         this.peliculas = new Pelicula[peliculas];
@@ -54,6 +48,14 @@ public class Camara {
         this.soporte = soporte;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public boolean asignarPelicula(Pelicula pelicula) {
         boolean estado = false;
         for (int i = 0; i < peliculas.length; i++) {
@@ -66,9 +68,12 @@ public class Camara {
 
     @Override
     public String toString() {
-        return "marcas= " + marcas +
-                "\nmodelos= " + modelos +
-                "\npeliculas= " + Arrays.toString(peliculas) +
-                "\nsoporte= " + soporte;
+        return "Camara{" +
+                "marcas=" + marcas +
+                ", modelos=" + modelos +
+                ", peliculas=" + Arrays.toString(peliculas) +
+                ", soporte=" + soporte +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }

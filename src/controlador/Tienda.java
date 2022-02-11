@@ -1,4 +1,10 @@
-package modelo;
+package controlador;
+
+import modelo.Camara;
+import modelo.Cliente;
+import modelo.Marca;
+import modelo.Modelo;
+import modelo.Pelicula;
 
 import java.util.Arrays;
 
@@ -66,17 +72,16 @@ public class Tienda {
         this.direccion = direccion;
     }
 
-    public boolean asignarCamaras(Marca marca, Modelo modelo, int cantPeliculas, Pelicula[] pelicula, boolean soporte) {
+    public boolean crearCamaras(boolean soporte, String nombre) {
         boolean estado = false;
         for (int i = 0; i < camaras.length; i++) {
-            camaras[i]=new Camara();
-            camaras[i].setMarcas(marca);
-            camaras[i].setModelos(modelo);
-            camaras[i].setSoporte(soporte);
-            camaras[i].setPeliculas(pelicula);
-
-            estado = true;
-            break;
+            if(camaras[i]==null) {
+                camaras[i] = new Camara();
+                camaras[i].setSoporte(soporte);
+                camaras[i].setNombre(nombre);
+                estado = true;
+                break;
+            }
         }
         return estado;
     }
