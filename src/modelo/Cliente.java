@@ -49,6 +49,18 @@ public class Cliente {
         this.camara = camara;
     }
 
+    public boolean crearCamara(boolean soporte, String nombre) {
+        boolean estado = false;
+            if(camara==null) {
+                camara = new Camara();
+                camara.setSoporte(soporte);
+                camara.setNombre(nombre);
+                estado = true;
+            }
+
+        return estado;
+    }
+
     @Override
     public String toString() {
         return "nombre= " + nombre +
