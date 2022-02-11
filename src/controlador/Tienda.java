@@ -89,9 +89,11 @@ public class Tienda {
     public boolean asignarClientes(Cliente cliente) {
         boolean estado = false;
         for (int i = 0; i < clientes.length; i++) {
-            clientes[i] = cliente;
-            estado = true;
-            break;
+            if(clientes[i] == null) {
+                clientes[i] = cliente;
+                estado = true;
+                break;
+            }
         }
         return estado;
     }
