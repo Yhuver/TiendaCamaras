@@ -31,6 +31,7 @@ public class Main {
                     consola.imprimir("No se pueden crear más camaras");
                 }
             }
+
             pregunta = consola.leerCadena("¿Desea seguir administramdo tienda SI/NO?");
         }
 
