@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Arrays;
+
 public class Modelo {
 
     private String nombre;
@@ -32,5 +34,13 @@ public class Modelo {
 
     public void setItems(Item[] items) {
         this.items = items;
+    }
+
+    @Override
+    public String toString() {
+        return "Modelo{" +
+                "nombre='" + nombre + '\'' +
+                ", items=" + Arrays.toString(items) +
+                '}';
     }
 }

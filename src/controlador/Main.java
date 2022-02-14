@@ -1,5 +1,6 @@
 package controlador;
 
+import modelo.Camara;
 import modelo.Tienda;
 import vista.Consola;
 
@@ -19,6 +20,31 @@ public class Main {
         tienda.setTelefono(consola.leerCadena("Digita el Telefono de la Tienda:"));
 
         consola.imprimir(tienda.toString());
+        boolean continuar = false;
+
+        do {
+            consola.imprimir("***** AGREGAR NUEVA CAMARA *****");
+            String marcaCamara = consola.leerCadena("MARCA CAMARA: ");
+            String modeloCamara = consola.leerCadena("MODELO CAMARA: ");
+            String marcaPelicula = consola.leerCadena("MARCA PELICULA: ");
+            char temp = consola.leerCaracter("CAMARA CON SOPORTE? S/N");
+            boolean soporteCamara;
+            soporteCamara = temp == 's' || temp == 'S';
+            boolean confirmacion = tienda.AgregarCamara(marcaCamara, modeloCamara);
+            if (confirmacion){
+                consola.imprimir("registroexitoso");
+                temp = consola.leerCaracter("AGREGAR NUEVA CAMARA? S/N");
+                continuar=temp == 's' || temp == 'S';
+            }
+            else{
+                consola.imprimir("ya no se pueden agregar más camaras");
+                continuar=false;
+            }
+
+        }while (continuar);
+
+        consola.imprimir(tienda.toString());
+        consola.imprimir(tienda.getCamaras()[1].getMarca().getMarcaCamara());
 
 
 

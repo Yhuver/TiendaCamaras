@@ -1,8 +1,11 @@
 package modelo;
 
+import vista.Consola;
+
 import java.util.Arrays;
 
 public class Tienda {
+    Consola consola = new Consola();
     private Camara[] camaras;
     private Cliente[] clientes;
     private String nombre;
@@ -24,6 +27,21 @@ public class Tienda {
     public Tienda(int clientes, int camaras){
         this.camaras = new Camara[camaras];
         this.clientes = new Cliente[clientes];
+    }
+
+    public boolean AgregarCamara(String marcaCamara, String modeloCamara){
+        boolean confirmacion=false;
+        Camara camara1 = new Camara();
+        camara1.getMarca().setMarcaCamara(marcaCamara);
+        camara1.getModelo().setNombre(modeloCamara);
+        for(int i=0;i<camaras.length;i++) {
+            if (camaras[i] == null) {
+                camaras[i] = camara1;
+                confirmacion = true;
+                break;
+            }
+        }
+        return confirmacion;
     }
 
     public Camara[] getCamaras() {
