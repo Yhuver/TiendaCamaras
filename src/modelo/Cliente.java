@@ -17,6 +17,12 @@ public class Cliente {
     public Cliente() {
     }
 
+    public Cliente(String nombre, String tipoDocumento, String numeroDocumento) {
+        this.nombre = nombre;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+    }
+
     public String getNombre() {
         return nombre;
     }

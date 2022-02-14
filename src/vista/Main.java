@@ -24,18 +24,52 @@ public class Main {
             if (agregarCamara.equalsIgnoreCase("SI")) {
                 String nombreCamara = consola.leerCadena("Digite el nombre de la camara");
                 Boolean soporte = consola.leerCadena("¿La Camara tendra soporte? SI/NO").equalsIgnoreCase("SI");
-                boolean creado = tienda1.crearCamaras(soporte, nombreCamara);
+                boolean creado = tienda1.crearCamaras(soporte, nombreCamara, consola.leerEntero("Digite las catidad de peliculas de la camara"));
                 if (creado) {
                     consola.imprimir("La camara se registro con exito");
+                    String agregarPelicula = consola.leerCadena("¿Desea agregar Pelicula a la Camara SI/NO?");
+                    while (agregarPelicula.equalsIgnoreCase("SI")) {
+
+                        String asignarPeliculaACamara=tienda1.asignarPeliculaACamara(nombreCamara, consola.leerCadena("Digite el nombre de la pelicula"), consola.leerCadena("Digite la sencibilidad de la pelicula"), consola.leerCadena("Digite el formato de la pelicula"));
+                        consola.imprimir(asignarPeliculaACamara);
+                        agregarPelicula = consola.leerCadena("¿Desea agregar Otra Pelicula a la Camara SI/NO?");
+                    }
                 } else {
                     consola.imprimir("No se pueden crear más camaras");
                 }
             }
 
+            String agregarCliente = consola.leerCadena("¿Desea agregar cliente SI/NO?");
+            if (agregarCliente.equalsIgnoreCase("SI")) {
+                String nombre = consola.leerCadena("Digite el nombre del cliente");
+                String tipoDocumento = consola.leerCadena("Digite el tipo de documento del cliente");
+                String numeroDocumento = consola.leerCadena("Digite el numero de documento del cliente");
+                Cliente cliente = new Cliente(nombre, tipoDocumento, numeroDocumento);
+                boolean creado = tienda1.asignarClientes(cliente);
+                if (creado) {
+                    consola.imprimir("El cliente se registro con exito");
+                } else {
+                    consola.imprimir("No se pueden crear más clientes");
+                }
+            }
+
+            String alquilarCamara = consola.leerCadena("¿Desea alquilar una camara a un Cliente SI/NO?");
+            if (alquilarCamara.equalsIgnoreCase("SI")) {
+                consola.imprimir("-------Estos clientes estan registrados----------");
+                String clientes = tienda1.listarClientes();
+                consola.imprimir(clientes);
+                consola.imprimir("-------Estas Camaras estan registrados----------");
+                String camaras = tienda1.listarCamaras();
+                consola.imprimir(camaras);
+
+                alquilarCamara = tienda1.alquilarCamaraAClienteConMetodosPrivados(consola.leerCadena("tipo de documento"), consola.leerCadena("numero de documento"), consola.leerCadena("nombre de la camara"));
+                consola.imprimir(alquilarCamara);
+            }
+
             pregunta = consola.leerCadena("¿Desea seguir administramdo tienda SI/NO?");
         }
 
-        String consulta = consola.leerCadena("¿Desea ingresar cliente SI/NO?");
+        /*String consulta = consola.leerCadena("¿Desea ingresar cliente SI/NO?");
         while (consulta.equalsIgnoreCase("SI")) {
             String agregarCliente = consola.leerCadena("¿hay un nuevo cliente?");
             if (agregarCliente.equalsIgnoreCase("SI")) {
@@ -59,7 +93,7 @@ public class Main {
                 }
             }
             consulta = consola.leerCadena("¿Desea ingresar cliente SI/NO?");
-        }
+        }*/
 
 
         System.out.println(tienda1);

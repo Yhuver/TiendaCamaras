@@ -72,11 +72,11 @@ public class Tienda {
         this.direccion = direccion;
     }
 
-    public boolean crearCamaras(boolean soporte, String nombre) {
+    public boolean crearCamaras(boolean soporte, String nombre, int cantidadPeliculas) {
         boolean estado = false;
         for (int i = 0; i < camaras.length; i++) {
             if (camaras[i] == null) {
-                camaras[i] = new Camara();
+                camaras[i] = new Camara(cantidadPeliculas);
                 camaras[i].setSoporte(soporte);
                 camaras[i].setNombre(nombre);
                 estado = true;
@@ -141,8 +141,10 @@ public class Tienda {
 
     private Cliente buscarCliente(String tipoDocumento, String numeroDocumento){
         for (int i = 0; i < clientes.length; i++) {
-            if (clientes[i].getNumeroDocumento().equalsIgnoreCase(numeroDocumento) && clientes[i].getTipoDocumento().equalsIgnoreCase(tipoDocumento)) {
-                return clientes[i];
+            if(clientes[i]!=null) {
+                if (clientes[i].getNumeroDocumento().equalsIgnoreCase(numeroDocumento) && clientes[i].getTipoDocumento().equalsIgnoreCase(tipoDocumento)) {
+                    return clientes[i];
+                }
             }
         }
          return null;
@@ -150,11 +152,47 @@ public class Tienda {
 
     private Camara buscarCamara(String nombreCamara){
         for (int i = 0; i < camaras.length; i++) {
-            if (camaras[i].getNombre().equalsIgnoreCase(nombreCamara)) {
-                return camaras[i];
+            if(camaras[i]!=null) {
+                if (camaras[i].getNombre().equalsIgnoreCase(nombreCamara)) {
+                    return camaras[i];
+                }
             }
         }
         return null;
+    }
+
+    public String listarCamaras(){
+        String cad="";
+        for (Camara camara:camaras) {
+            if(camara!=null){
+                cad+="Nombre: "+camara.getNombre()+" - Soporte: "+camara.isSoporte();
+                cad+="\n";
+            }
+        }
+        return cad;
+    }
+
+    public String listarClientes(){
+        String cad="";
+        for (Cliente cliente:clientes) {
+            if(cliente!=null){
+                cad+="Nombre: "+cliente.getNombre()+" - Tipo de documento: "+cliente.getTipoDocumento()+" - Numero de documento: "+cliente.getNumeroDocumento();
+                cad+="\n";
+            }
+        }
+        return cad;
+    }
+
+    public String asignarPeliculaACamara(String nombreCamara, String nombre, String sencibilidad, String formato){
+        Camara camara=this.buscarCamara(nombreCamara);
+        if(camara==null){
+            return "Camara No existe";
+        }
+        boolean resultado=camara.asignarPelicula(nombre,sencibilidad,formato);
+        if(resultado){
+            return "Se agrego la pelicula a la camara";
+        }
+        return "No se pudo agregar la pelicula a la camara, la camara no puede insertar más peliculas";
     }
 
     @Override

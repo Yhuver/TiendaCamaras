@@ -56,15 +56,20 @@ public class Camara {
         this.nombre = nombre;
     }
 
-    public boolean asignarPelicula(Pelicula pelicula) {
+    public boolean asignarPelicula(String nombre, String sencibilidad, String formato) {
         boolean estado = false;
         for (int i = 0; i < peliculas.length; i++) {
-            peliculas[i] = pelicula;
-            estado = true;
-            break;
+            if(peliculas[i]==null){
+                Pelicula pelicula=new Pelicula(nombre, sencibilidad, formato);
+                peliculas[i]=pelicula;
+                estado=true;
+                break;
+            }
         }
         return estado;
     }
+
+
 
     @Override
     public String toString() {

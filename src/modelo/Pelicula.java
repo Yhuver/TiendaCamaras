@@ -14,6 +14,12 @@ public class Pelicula {
         this.formato = formato;
     }
 
+    public Pelicula(String nombre, String sencibilidad, String formato) {
+        this.nombre = nombre;
+        this.sencibilidad = sencibilidad;
+        this.formato = formato;
+    }
+
     public Pelicula(Marca marcas){
         this.marcas = marcas;
     }
