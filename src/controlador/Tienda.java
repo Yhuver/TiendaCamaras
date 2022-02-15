@@ -195,6 +195,30 @@ public class Tienda {
         return "No se pudo agregar la pelicula a la camara, la camara no puede insertar más peliculas";
     }
 
+    public String asignarMarcaACamara(String nombreCamara, Marca marca) {
+        Camara camara=this.buscarCamara(nombreCamara);
+        if (camara==null){
+            return "camara No existe";
+        }
+        boolean asignado=camara.asignarMarca(marca);
+        if (asignado){
+            return "se asignó la marca de la camara";
+        }
+        return "No se pudo asignar la marca de la camara";
+    }
+
+    public String asignarModeloACamara(String nombreCamara, Modelo modelo) {
+        Camara camara = this.buscarCamara(nombreCamara);
+        if (camara==null){
+            return "camara No existe";
+        }
+        boolean asignado=camara.asignarModelo(modelo);
+        if (asignado){
+            return "se asignó el modelo de la camara";
+        }
+        return "No se pudo asignar el modelo de la camara";
+    }
+
     @Override
     public String toString() {
         return "camaras= " + Arrays.toString(camaras) +

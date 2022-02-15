@@ -8,9 +8,8 @@ public class Modelo {
 
     private Item[] items;
 
-    public Modelo(String nombre, int items) {
+    public Modelo(String nombre) {
         this.nombre = nombre;
-        this.items=new Item[items];
     }
 
     public Modelo(int items) {

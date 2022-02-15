@@ -3,8 +3,8 @@ package modelo;
 import java.util.Arrays;
 
 public class Camara {
-    private Marca marcas;
-    private Modelo modelos;
+    private Marca marca;
+    private Modelo modelo;
     private Pelicula[] peliculas;
     private boolean soporte;
     String nombre;
@@ -16,20 +16,20 @@ public class Camara {
     public Camara() {
     }
 
-    public Marca getMarcas() {
-        return marcas;
+    public Marca getMarca() {
+        return marca;
     }
 
-    public void setMarcas(Marca marcas) {
-        this.marcas = marcas;
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
-    public Modelo getModelos() {
-        return modelos;
+    public Modelo getModelo() {
+        return modelo;
     }
 
-    public void setModelos(Modelo modelos) {
-        this.modelos = modelos;
+    public void setModelo(Modelo modelos) {
+        this.modelo = modelo;
     }
 
     public Pelicula[] getPeliculas() {
@@ -69,13 +69,25 @@ public class Camara {
         return estado;
     }
 
+    public boolean asignarMarca(Marca marca) {
+        boolean estado = false;
+        this.marca=marca;
+        estado = true;
+        return estado;
+    }
 
+    public boolean asignarModelo(Modelo modelo) {
+        boolean estado = false;
+        this.modelo=modelo;
+        estado = true;
+        return estado;
+    }
 
     @Override
     public String toString() {
         return "Camara{" +
-                "marcas=" + marcas +
-                ", modelos=" + modelos +
+                "marcas=" + marca +
+                ", modelos=" + modelo +
                 ", peliculas=" + Arrays.toString(peliculas) +
                 ", soporte=" + soporte +
                 ", nombre='" + nombre + '\'' +

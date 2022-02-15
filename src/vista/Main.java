@@ -30,10 +30,17 @@ public class Main {
                     String agregarPelicula = consola.leerCadena("¿Desea agregar Pelicula a la Camara SI/NO?");
                     while (agregarPelicula.equalsIgnoreCase("SI")) {
 
-                        String asignarPeliculaACamara=tienda1.asignarPeliculaACamara(nombreCamara, consola.leerCadena("Digite el nombre de la pelicula"), consola.leerCadena("Digite la sencibilidad de la pelicula"), consola.leerCadena("Digite el formato de la pelicula"));
+                        String asignarPeliculaACamara = tienda1.asignarPeliculaACamara(nombreCamara, consola.leerCadena("Digite el nombre de la pelicula"), consola.leerCadena("Digite la sencibilidad de la pelicula"), consola.leerCadena("Digite el formato de la pelicula"));
                         consola.imprimir(asignarPeliculaACamara);
                         agregarPelicula = consola.leerCadena("¿Desea agregar Otra Pelicula a la Camara SI/NO?");
                     }
+                    Marca marca1 = new Marca(consola.leerCadena("nombre de la marca de la camara"), consola.leerCadena("dirección de la marca"));
+                    String asignarMarcaCamara = tienda1.asignarMarcaACamara(consola.leerCadena("nombre de la camara"), marca1);
+                    consola.imprimir(asignarMarcaCamara);
+
+                    Modelo modelo1 = new Modelo(consola.leerCadena("nombre del modelo de la camara"));
+                    String asignarModeloCamara = tienda1.asignarModeloACamara(consola.leerCadena("nombre de la camara"), modelo1);
+                    consola.imprimir(asignarModeloCamara);
                 } else {
                     consola.imprimir("No se pueden crear más camaras");
                 }
@@ -64,10 +71,9 @@ public class Main {
 
                 alquilarCamara = tienda1.alquilarCamaraAClienteConMetodosPrivados(consola.leerCadena("tipo de documento"), consola.leerCadena("numero de documento"), consola.leerCadena("nombre de la camara"));
                 consola.imprimir(alquilarCamara);
-            }
 
-            pregunta = consola.leerCadena("¿Desea seguir administramdo tienda SI/NO?");
-        }
+                pregunta = consola.leerCadena("¿Desea seguir administramdo tienda SI/NO?");
+            }
 
         /*String consulta = consola.leerCadena("¿Desea ingresar cliente SI/NO?");
         while (consulta.equalsIgnoreCase("SI")) {
@@ -96,8 +102,9 @@ public class Main {
         }*/
 
 
-        System.out.println(tienda1);
+            System.out.println(tienda1);
 
 
+        }
     }
 }

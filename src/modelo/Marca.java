@@ -31,7 +31,6 @@ public class Marca {
 
     @Override
     public String toString() {
-        return direccion +
-                nombre;
+        return nombre + " " + direccion;
     }
 }
